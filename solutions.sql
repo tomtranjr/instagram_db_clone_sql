@@ -1,5 +1,15 @@
--- 1. Find the 5 oldest users. 
+-- Questions explored:
+-- 1.	Find the 5 oldest users. 
+-- 2.	We need to figure out when to schedule an ad campaign. Which day of the week do most users register on?
+-- 3.	We want to target our inactive users with an email campaign. Find the users who have never posted a photo. 
+-- 4.	Which user has the single most liked photo?
+-- 5.	How many times does the average user post? 
+-- 6.	What are the top 5 most used hashtags?
+-- 7.	We want to identify users who may be bots. Find the users who have liked every post?
 
+
+
+-- 1. Find the 5 oldest users. 
 SELECT * 
 FROM users
 ORDER BY created_at
@@ -15,9 +25,7 @@ LIMIT 5;
     # | 38 | Jordyn.Jacobson2 | 2016-05-14 07:56:26 |
     # +----+------------------+---------------------+
 
--- 2. What day of the week do most users register on? 
--- We need to figure out when to schedule an ad campain
-
+-- 2. We need to figure out when to schedule an ad campaign. Which day of the week do most users register on?
 SELECT
     DAYNAME(created_at) AS day,
     COUNT(*) AS total
@@ -38,9 +46,7 @@ ORDER BY total DESC;
     # +-----------+-------+
     
     
--- 3. Find the users who have never posted a photo
--- we want to target our inactive users with an email campain
-
+-- 3. We want to target our inactive users with an email campaign. Find the users who have never posted a photo.
 SELECT 
     username
 FROM users
@@ -78,10 +84,9 @@ WHERE photos.id IS NULL;
     # | Rocio33             |
     # | Tierra.Trantow      |
     # +---------------------+
-    
+   
 
--- 4. Who has the single most liked photo? 
-
+-- 4. Which user has the single most liked photo?
 SELECT
     username,
     photos.id, 
@@ -102,9 +107,8 @@ LIMIT 1;
     # | Zack_Kemmer93 | 145 | https://jarret.name |    48 |
     # +---------------+-----+---------------------+-------+
     
-
--- 5. How many times does the average user post?
-
+    
+-- 5.	How many times does the average user post? 
 SELECT
 (SELECT COUNT(*) FROM photos) / (SELECT COUNT(*) FROM users) AS avg;
 
@@ -114,8 +118,9 @@ SELECT
     # | 2.5700 |
     # +--------+
     
--- 6. What are the top 5 most commonly used hastags? 
-
+    
+    
+-- 6. What are the top 5 most used hashtags?
 SELECT 
     tags.tag_name,
     COUNT(*) AS Total
@@ -136,8 +141,9 @@ LIMIT 5;
     # | concert  |    24 |
     # +----------+-------+
     
--- 7. Which users have liked all posts? 
-
+    
+    
+-- 7. We want to identify users who may be bots. Find the users who have liked every post?
 
 SELECT
     username,

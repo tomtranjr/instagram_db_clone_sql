@@ -1,6 +1,3 @@
-# instagram_db_clone_sql
-SQL Instagram Project from Udemy, ["The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert"](https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/) by Colt Steele
-
 # SQL Instagram Project
 
 Short SQL project based on ["The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert"](https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/) by Colt Steele.  
